@@ -1,12 +1,12 @@
 // export const Greeter = (name: string) => `Hello ${name}`;
 // npm i @types/request
 // const request = require('request');
+import Config from './model/Config';
 import ConfigOptions from './model/ConfigOptions';
-import Properties from './model/Properties';
 
 export const client = {
-    load(opts: any): Promise<Properties> {
-        let options = new ConfigOptions(opts.appName, opts.uri, opts.profiles, opts.label);
-        return options.properties;
+    init(opts: any): Promise<Config> {
+        const options = new ConfigOptions(opts.appName, opts.uri, opts.profiles, opts.label);
+        return options.config;
     }
 }

@@ -1,21 +1,21 @@
 import * as request from 'request';
-import Properties from './Properties';
+import Config from './Config';
 
 export default class ConfigOptions {
     public application: string;
     public uri: string;
     public profiles: string;
     public label?: string
-    public properties: Promise<Properties>;
+    public config: Promise<Config>;
     constructor (appName: string, uri: string, profiles: string, label?: string) { 
         this.application = appName;
         this.uri = uri.endsWith('/') ? uri : uri + '/';
         this.profiles = profiles;
         this.label = label;
-        this.properties = this.init();
+        this.config = this.init();
     }
 
-    private init(): Promise<Properties> {
+    private init(): Promise<Config> {
         return new Promise((resolve, reject) => {
             request(this.getConfigURI(), 
             {
@@ -24,13 +24,14 @@ export default class ConfigOptions {
             },
              (err, res, body) => {
                 if (err) { reject(err); }
-                return resolve(new Properties(body.propertySources[0].source));
+                return resolve(new Config(body.propertySources[0].source));
             });
         });
     } 
 
     private getConfigURI = () => {
-        const configURI = this.uri + this.application + '/' + this.profiles + '/';
+        let configURI = this.uri + this.application + '/' 
+        configURI +=  this.profiles === undefined ? 'default/' : this.profiles + '/';
         return this.label === undefined ? configURI : configURI + '/' + this.label;
     }
 }
