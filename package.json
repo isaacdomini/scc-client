@@ -1,6 +1,6 @@
 {
   "name": "scc-client",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Spring Cloud Config Client",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,7 +22,14 @@
     "type": "git",
     "url": "git+https://github.com/cyriacd/scc-client.git"
   },
-  "keywords": ["spring cloud", "spring cloud config", "config", "cloud config", "config client", "spring cloud config client"],
+  "keywords": [
+    "spring cloud",
+    "spring cloud config",
+    "config",
+    "cloud config",
+    "config client",
+    "spring cloud config client"
+  ],
   "author": "Isaac Domini",
   "license": "GPLv3",
   "bugs": {
@@ -37,5 +44,9 @@
     "tslint": "^5.12.0",
     "tslint-config-prettier": "^1.17.0",
     "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "@types/request": "^2.48.1",
+    "request": "^2.88.0"
   }
 }
