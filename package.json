@@ -1,0 +1,41 @@
+{
+  "name": "scc-client",
+  "version": "0.0.0",
+  "description": "Spring Cloud Config Client",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyriacd/scc-client.git"
+  },
+  "keywords": ["spring cloud", "spring cloud config", "config", "cloud config", "config client", "spring cloud config client"],
+  "author": "Isaac Domini",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/cyriacd/scc-client/issues"
+  },
+  "homepage": "https://github.com/cyriacd/scc-client#readme",
+  "devDependencies": {
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.3",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2"
+  }
+}
