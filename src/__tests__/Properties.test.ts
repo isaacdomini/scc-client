@@ -5,5 +5,5 @@
 import Config from '../model/Config';
 
 test('Properties', () => {
-    expect('').toBe('');
+  expect('').toBe('');
 });

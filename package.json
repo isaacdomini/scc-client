@@ -1,6 +1,6 @@
 {
   "name": "scc-client",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Spring Cloud Config Client",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -30,7 +30,7 @@
     "config client",
     "spring cloud config client"
   ],
-  "author": "Isaac Domini",
+  "author": "Isaac Domini <me@isaacdomini.com>",
   "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/cyriacd/scc-client/issues"
@@ -46,7 +46,6 @@
     "typescript": "^3.2.2"
   },
   "dependencies": {
-    "@types/request": "^2.48.1",
-    "request": "^2.88.0"
+    "axios": "^0.18.0"
   }
 }
